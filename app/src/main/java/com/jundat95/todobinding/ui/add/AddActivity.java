@@ -12,7 +12,7 @@ public class AddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
+//        setContentView(R.layout.activity_add);
 
         AddViewModel addViewModel = new AddViewModel("Title 1", "Content 1");
         ActivityAddBinding activityAddBinding = DataBindingUtil.setContentView(this, R.layout.activity_add);
