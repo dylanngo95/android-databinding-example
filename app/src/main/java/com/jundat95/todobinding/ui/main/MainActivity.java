@@ -18,7 +18,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
-    private RecyclerView recyclerView;
     private MainAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
@@ -34,23 +33,24 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         binding.setPresenter(mainPresenter);
 
-        recyclerView = (RecyclerView)findViewById(R.id.rcvTodo);
-        recyclerView.setHasFixedSize(true);
+        binding.rcvTodo.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        binding.rcvTodo.setLayoutManager(layoutManager);
 
         List<AddViewModel> items = Arrays.asList(
-                new AddViewModel("Title 1", "Content 1"),
-                new AddViewModel("Title 2", "Content 2"),
-                new AddViewModel("Title 3", "Content 3"),
-                new AddViewModel("Title 4", "Content 4"),
-                new AddViewModel("Title 5", "Content 5"),
-                new AddViewModel("Title 6", "Content 6")
+                new AddViewModel("What is Lorem Ipsum?", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "),
+                new AddViewModel("Why do we use it?", "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."),
+                new AddViewModel("Where does it come from?", "Where does it come from?\n" +
+                        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. "),
+                new AddViewModel("Where does it come from?", "Where does it come from?\n" +
+                        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. "),
+                new AddViewModel("Where can I get some?", "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."),
+                new AddViewModel("Where can I get some?", "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.")
         );
 
         adapter = new MainAdapter(items);
-        recyclerView.setAdapter(adapter);
+        binding.rcvTodo.setAdapter(adapter);
 
     }
 
